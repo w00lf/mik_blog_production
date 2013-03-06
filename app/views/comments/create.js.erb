@@ -1,0 +1,10 @@
+if( $('#recaptcha_widget_div').length > 0 )
+	Recaptcha.reload();
+$('#flash_alert, #flash_notice').hide();
+<% if @comment.errors.any? %>
+	$('#flash_alert').html("<%= j(render('blog/alertnotice', :notice => nil, :alert => @errors) )  %>").show(500);
+<% else %>
+	$("#flash_notice").html("<%= j( render('blog/alertnotice', :notice => @notice, :alert => nil) )%>").show_alert_notice();
+	$(":input:not(input[type=submit])").val("");
+	$("#comments").prepend("<%= j( render @comment ) %>");
+<% end %>

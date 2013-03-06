@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title><%=h yield(:title) %></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="description" content="<%=h yield(:description) %>" />
+        <meta name="keywords" content="<%=h yield(:keywords) %>" />
+        <%=  csrf_meta_tag %>
+        <%=  favicon_link_tag %>
+        <%=  stylesheet_link_tag 'application' %>
+        <%=  javascript_include_tag 'application' %>
+        <%= render :partial => 'layouts/ga' %> 
+    </head>
+
+    <body>
+        
+        <!-- Header-->
+        <div class="navbar" id="navigation_bar">
+          <div class="navbar-inner">
+            <div class="container">
+              <a class="brand" href="/">Заметки о программировании</a>
+              <div class="navbar-content">
+                <ul class="nav">
+                  <li>
+                    <a href="/">Главная</a> 
+                  </li>
+                  <li>
+                    <a href="/about">О сайте/Контакты</a> 
+                  </li>
+                  <%= render 'blog/site_search' %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+                <!-- HEADER END -->
+
+        <div class="row-fluid content">
+            <div id="main_area">
+
+                <!-- LEFT COLUMN, CONTENT-->
+                <div class="span9" id="content_area">              
+                    <%= render 'blog/alertnotice' %>
+                    <%=  yield %>        
+                </div>
+                <!-- CONTENT END -->
+
+                <!-- RIGHT COLUMN-->
+                 <div class="span3">
+                    <div class="well"><%=render 'blog/menu' %></div>
+                    <div class="well"><%=render 'blog/user_pann' %></div>
+                    <div class="well"><%=render 'comments/last_comments' %></div>
+                </div>
+                <!-- RIGHT COLUMN END-->
+                
+                <!-- Footer -->
+                <p class="spacer"></p>
+                <div class="grey_border footer">
+                    2013 Цифровой путь
+                </div>
+                <!-- Footer END -->
+            </div>
+        </div>
+        <!-- MAIN AREA END -->
+        <script type="text/javascript">
+               SyntaxHighlighter.highlight();
+        </script>
+    </body>
+</html>

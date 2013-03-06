@@ -1,0 +1,17 @@
+<% content_for :title, t(:main_title) %>
+<% content_for :description, t(:main_description) %>
+<% content_for :keywords, t(:main_keywords) %>
+<div id="posts">
+<% if can? :create, post = Post.new %>
+  <%= link_to(new_admin_post_path(post), :class => 'btn btn-small', :id => 'create_new') do %>
+  	<i class="icon-plus-sign"></i>Новый пост
+  <%end%>
+<% end %>
+<% @posts.each do |post| %>
+ <%= render(post) %>
+ <p class="lead"></p>
+<% end %>
+<%= will_paginate @posts %>
+</div>
+
+

@@ -1,0 +1,20 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  name: fooo
+  content: MyText
+  published: true
+  slug: fooo
+
+two:
+  title: foo1
+  name: admin
+  content: MyText
+  published: true
+  slug: admin
+three:
+  title: foo1
+  name: foon
+  content: MyText
+  published: true

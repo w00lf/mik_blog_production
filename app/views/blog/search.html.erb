@@ -1,0 +1,5 @@
+Результаты поиска по слову "<%=  @search_word %>":
+<% @result.each do |post| %>
+<%=  render(post)  %>
+<% end %>
+<%= will_paginate @result %>

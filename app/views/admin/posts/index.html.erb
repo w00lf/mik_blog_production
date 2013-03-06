@@ -1,0 +1,15 @@
+<%= link_to 'Назад к админке', admin_path %>
+<h1>Редактирование записей блога</h1>
+<div id="posts">
+<% if can? :create, post = Post.new %>
+  <%= link_to(new_admin_post_path(post), :class => 'btn btn-small') do %>
+    <i class="icon-plus-sign"></i>Новый пост
+  <%end%>
+<% end %>
+<% @posts.each do |post| %>
+ <%= render(post) %>
+ <p class="lead"></p>
+<% end %>
+</div>
+
+

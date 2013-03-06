@@ -1,0 +1,36 @@
+<%= form_for([:admin,@post]) do |f| %>
+  <% if @post.errors.any? %>
+    <% @post.errors.full_messages.each do |msg| %>
+      <%= render 'blog/alertnotice', :alert => msg %>
+    <% end %>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :postTag %><br />
+    <%= f.text_field :postTag_list %>
+  </div>
+  <div class="field">
+    <%= f.label :published %>
+    <%= f.check_box :published, {}, true, false %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :keywords %>
+    <%= f.text_field :keywords %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.cktext_area :content %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit(:create, :id=>'create_post') %>
+  </div>
+<% end %>

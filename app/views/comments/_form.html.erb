@@ -1,0 +1,27 @@
+<%= form_for([@post, @post.comments.build], :remote => true) do |f| %>
+  <div class="field">
+    <small>Вы вошли как: </small>
+    <b>
+      <% if current_user != nil %>
+        <%= current_user.username %>
+      <% else %>
+        Гость
+      <% end %>
+    </b>
+    <% if defined? @comment %>
+    	<textarea cols='20' rows='5' id='markItUp_user'>
+    		<%= @comment.content %>
+    	</textarea>
+    <% else %>
+    	<%= f.text_area :content, :cols => 20, :rows => 5, :id => 'markItUp_user' %>
+    <% end %>
+  </div>
+  <% if current_user === nil %>
+    <div class="actions">
+    	<%= raw get_captcha(:options => {:theme => 'white', :tabindex => 10}) %>
+    </div>
+  <% end %>
+  <%= f.submit %>
+<% end %>
+<div id="flash_alert" style="display:none"></div>
+<div id="flash_notice" style="display:none"></div>

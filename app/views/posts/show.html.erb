@@ -1,0 +1,35 @@
+<% content_for :title, @post.title %>
+<% content_for :description, @post.description %>
+<% content_for :keywords, @post.keywords %>
+<div id="post_data"> 
+  <div class="page-header">
+    <h1>
+      <%= @post.title %>
+    </h1>
+    <% if can? :update, @post %>
+    <%= link_to edit_admin_post_path(@post), :class => 'btn btn-small' do %>
+      <i class="icon-pencil"></i>
+    <% end %>
+    <%= link_to admin_post_path(@post), :class => 'btn btn-small',  confirm: 'Вы точно хотите удалить?', method: :delete do %>
+      <i class="icon-trash"></i>
+    <% end %>
+    <%= link_to :root, :class => 'btn btn-small' do %>
+      <i title="Назад" class="icon-arrow-left"></i>
+    <% end %>
+  <% end %>
+  </div>
+
+  <div>
+    <%= raw @post.content %>
+  </div>
+  <p class="lead"></p>
+  <%= render :partial => 'posts/tag_pannel', :locals => { :post => @post }  %>
+</div>
+<legend> <i class="icon-comment"></i> Комментарии:</legend>
+<%= render 'comments/form' %>
+
+<span id="comments">
+<% @comments.each do |comment| %>
+        <%= render comment %>
+<% end %>
+</span>

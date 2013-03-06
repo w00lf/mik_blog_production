@@ -1,0 +1,26 @@
+<p class="lead"><%= link_to post.title, post_path(post) %>
+<% if can? :manage, post %>
+  	<%= link_to edit_admin_post_path(post), :class => 'btn btn-small' do %>
+  		<i class="icon-pencil"></i>
+  	<% end %>
+  	<%= link_to admin_post_path(post), :class => 'btn btn-small',  confirm: 'Вы точно хотите удалить?', method: :delete do %>
+  		<i class="icon-trash"></i>
+  	<% end %>
+<% end %>
+</p>
+<small>
+    <%= post.date_post %>
+</small>
+  <p class="lead"></p>
+<div>
+  <%= raw truncate_html post.content, :length => 200 %>
+  <p class="clear_float"></p>
+  <%= link_to(post, :class => 'btn btn-small') { "Дальше" } %>
+
+</div>
+  <p class="lead"></p>
+<% if post.comments.count != 0 %>
+  Комментариев: <%= post.comments.count %>
+<% else %>
+  Нет комментариев
+<% end %>

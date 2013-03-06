@@ -1,0 +1,5 @@
+<div>Теги:
+<% post.postTag_list.each do |tag| %>
+  <%=  tag === post.postTag_list.first ? '' : ', ' %><%=  link_to link_to tag, :controller => 'blog', :action => 'listing_tag', :tag => tag %>
+<% end %>
+</div>

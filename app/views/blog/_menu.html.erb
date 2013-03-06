@@ -1,0 +1,6 @@
+<legend><%= t(:tegs) %>:</legend>
+<% tag_cloud(get_all_tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+	<span>
+		<%=  link_to tag.name, {:controller => '/blog', :action => 'listing_tag', :tag => tag.name}, :class => css_class %> 
+	</span>
+<% end %>

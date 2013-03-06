@@ -1,0 +1,22 @@
+<%= link_to 'Назад к админке', admin_path %>
+<h1>Статические страницы блога:</h1>
+<%= link_to(new_admin_article_path(Article.new), :class => 'btn btn-small') do %>
+    <i class="icon-plus-sign"></i>Новая страница
+  <%end%>
+
+<% @articles.each do |article| %>
+  <tr>
+    <div class="lead">
+      <%= link_to article.title, admin_article_path(article) %>
+      <%= link_to edit_admin_article_path(article), :class => 'btn btn-small' do %>
+        <i class="icon-pencil"></i>
+      <% end %>
+      <%= link_to admin_article_path(article), :class => 'btn btn-small',  confirm: 'Вы точно хотите удалить?', method: :delete do %>
+        <i class="icon-trash"></i>
+      <% end %><br>
+      <small>Алиас: <%= article.slug %></small>
+    </div>
+    
+    <div><%= raw (truncate_html article.content, :length => 150) %></div>
+    <p class="lead"></p>
+<% end %>

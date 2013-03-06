@@ -1,0 +1,14 @@
+<legend><%= t(:comments) %>:</legend>
+<span id="last_comments">
+<% last_comments(5).each do |comment| %>
+	 <p><%= link_to  comment.content, ('/posts/' + comment.post_id.to_s + '#comment' + comment.id.to_s) %>
+	 	<br>
+	 	Написал: 
+	 	<% if (username = display_user_info comment.user_id) %>
+	 		<%= username %>
+	 	<% else %>
+	 		Гость
+	 	<% end %>
+	 </p>
+<% end %>
+</span>

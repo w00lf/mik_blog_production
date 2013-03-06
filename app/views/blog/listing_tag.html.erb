@@ -1,0 +1,7 @@
+<% content_for :title, t(:main_title) %>
+<% content_for :description, t(:main_description) %>
+<% content_for :keywords, t(:main_keywords) %>
+Статьи помеченные тегом "<%= @tag %>":<br/>
+<%  @tagged_posts.each do |post| %>
+<%= render post %>
+<% end %>

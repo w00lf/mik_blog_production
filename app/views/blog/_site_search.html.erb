@@ -1,0 +1,8 @@
+<div id="search" class="pull-right">
+<%= form_tag("/search", :method => "get") do %>
+	<label class="control-label"></label>
+	<div class="controls">
+		<%= text_field_tag(:word, nil, :placeholder=>t("helpers.placeholder.blog.search"), :class => 'input-large') %>
+	</div>	
+<% end %>
+</div>

@@ -1,0 +1,22 @@
+<p class="lead"><%= link_to post.title, post %>
+<% if can? :manage, post %>
+  	<%= link_to edit_admin_post_path(post), :class => 'btn btn-small' do %>
+  		<i class="icon-pencil"></i>
+  	<% end %>
+  	<%= link_to admin_post_path(post), :class => 'btn btn-small',  confirm: 'Вы точно хотите удалить?', method: :delete do %>
+  		<i class="icon-trash"></i>
+  	<% end %>
+<% end %>
+</p>
+
+
+<div>
+  <%= raw truncate_html post.content, :length => 500 %>
+  <%= link_to(post, :class => 'btn btn-small') { "Дальше" } %>
+
+  <p class="lead"></p>
+  <%= render :partial => 'posts/tag_pannel', :locals => { :post => post }  %>
+  <p class="clear_float"></p>
+</div>
+  
+

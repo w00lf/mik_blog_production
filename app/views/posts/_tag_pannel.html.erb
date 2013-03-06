@@ -1,0 +1,13 @@
+<p class="tag_pannel">
+    <%= render :partial => 'posts/post_tags', :locals => { :post => post }  %>
+    | <i class="icon-calendar"></i> <%= post.date_post %>
+    | <i class="icon-comment"></i> 
+        
+          <% if post.comments.count != 0 %>
+          <%= link_to(post_path(post, :anchor => "comments")) do %>
+            Комментариев: <%= post.comments.count %>
+            <% end %>
+          <% else %>
+            Нет комментариев
+          <% end %>
+  </p>

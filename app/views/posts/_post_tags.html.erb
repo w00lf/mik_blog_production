@@ -1,0 +1,7 @@
+<span class="tags">Теги:
+<% post.postTag_list.each do |tag| %>
+  	<%=  link_to(:controller => 'blog', :action => 'listing_tag', :tag => tag) do %>
+  		<span class="badge"><%= tag %></span>
+  	<% end %>
+<% end %>
+</span>

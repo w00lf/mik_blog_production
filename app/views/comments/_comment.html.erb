@@ -1,0 +1,24 @@
+<div id="comment<%= comment.id %>">
+	<hr />
+	<small>
+		<% if comment.user_id != nil %>
+			<%= display_user_info comment.user_id %>,
+		<% else %>	
+			Гость, 
+		<% end %>
+		<%= comment.comm_date %>
+		написал:
+	</small>	
+	<% if can? :delete, comment %>
+  		<%= link_to [@post, comment],
+  		               :confirm => 'Удалить коммент?',
+  		               :method => :delete, :class => 'btn btn-small delete_comment',
+  		               :remote => true do %>
+  			<i class="icon-trash"></i>
+  		<%end%>
+	<% end %>
+	<p class="lead"></p>
+		<div> <%= raw comment.content %></div>
+	<p class="lead"></p>
+</div>
+

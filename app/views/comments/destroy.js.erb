@@ -1,0 +1,2 @@
+$('#comment<%= @comment.id %>').hide(300).remove();
+$("#flash_notice").html("<%= j( render('blog/alertnotice', :notice => @notice, :alert => nil) )%>").show_alert_notice();
