@@ -10,12 +10,15 @@ group :production do
 end
 
 group :test, :development do
- gem 'rspec-rails'
- gem 'sqlite3'
- gem 'factory_girl_rails'
- gem 'mailcatcher'
- gem 'debugger'
- gem 'selenium-webdriver', '2.30.0'
+  gem "capistrano"
+  gem "rvm-capistrano"
+  gem 'rspec-rails'
+  gem 'sqlite3', '1.3.6'
+  gem 'factory_girl_rails'
+  gem 'mailcatcher'
+  gem 'debugger'
+  gem 'selenium-webdriver', '2.30.0'
+  gem "rvm-capistrano"
 end
 
 group :test do
