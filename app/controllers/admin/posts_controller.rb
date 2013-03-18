@@ -1,12 +1,12 @@
 class Admin::PostsController < ApplicationController
-  before_filter :verify_admin #TODO - изменить контроль за действиями пользователей
+  before_filter :verify_admin 
   
   load_and_authorize_resource 
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -72,16 +72,6 @@ class Admin::PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to :root, notice: t(:content_destroied) }
       format.json { head :no_content }
-    end
-  end
-
-  private
-
-  def verify_admin
-    if current_user != nil && !current_user.admin?
-      redirect_to :root, :alert => t(:access_denied)
-    elsif current_user == nil || !current_user.admin?
-      redirect_to "/users/sign_in", :alert => t(:access_denied)
     end
   end
 

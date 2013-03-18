@@ -1,7 +1,5 @@
 class Admin::ArticlesController < ApplicationController
-  # GET /articles
-  # GET /articles.json
-  before_filter :verify_admin #TODO - изменить контроль за действиями пользователей
+  before_filter :verify_admin 
 
   load_and_authorize_resource
 
@@ -82,14 +80,6 @@ class Admin::ArticlesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to admin_articles_url }
       format.json { head :no_content }
-    end
-  end
-
-  def verify_admin
-    if current_user != nil && !current_user.admin?
-      redirect_to :root, :alert => t(:access_denied)
-    elsif current_user == nil || !current_user.admin?
-      redirect_to "/users/sign_in", :alert => t(:access_denied)
     end
   end
 end

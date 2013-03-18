@@ -54,7 +54,8 @@ end
 set :unicorn_rails, "/var/lib/gems/1.8/bin/unicorn_rails"
 set :unicorn_conf, "/etc/unicorn/#{application}.#{scm_username}.rb"
 set :unicorn_pid, "/var/run/unicorn/#{application}.#{scm_username}.pid"
-set :unicorn_start, "rvm use 1.9.3 do bundle exec #{unicorn_rails} -Dc #{unicorn_conf}"
+# old entry; set :unicorn_start, "rvm use 1.9.3 do bundle exec #{unicorn_rails} -Dc #{unicorn_conf}"
+set :unicorn_start, "rvm use 1.9.3 do bundle exec unicorn_rails -Dc #{unicorn_conf}"
 
 # - for unicorn - #
 namespace :deploy do
