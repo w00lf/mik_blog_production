@@ -1,24 +1,24 @@
 <% devise_error_messages %>
-<h2><%= t("devise.registrations.edit.manage_acc") %></h2>
+<h2><%= t(".manage_acc") %></h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
 
   <div><%= f.label :email %></div>
   <%= f.email_field :email %>
 
-  <div><%= f.label :password %> <i>(<%= t("devise.registrations.edit.passw_change_blanck") %>)</i></div>
+  <div><%= f.label :password %> <i>(<%= t(".passw_change_blanck") %>)</i></div>
   <%= f.password_field :password, :autocomplete => "off" %>
 
   <div><%= f.label :password_confirmation %></div>
   <%= f.password_field :password_confirmation %>
-  <div><%= f.label :current_passw %> <i>(<%= t("devise.registrations.edit.passw_change_current") %>)</i></div>
+  <div><%= f.label :current_passw %> <i>(<%= t(".passw_change_current") %>)</i></div>
   <%= f.password_field :current_password %>
 
   <div><%= f.submit t("helpers.submit.update") %></div>
 <% end %>
 
-<h3><%= t("devise.registrations.edit.cancel_acc") %></h3>
+<h3><%= t(".cancel_acc") %></h3>
 
-<p><%= link_to t("devise.registrations.edit.cancel_acc_link"), registration_path(resource_name), :data => { :confirm => t('alerts.you_sure') }, :method => :delete %>.</p>
+<p><%= link_to t(".cancel_acc_link"), registration_path(resource_name), :data => { :confirm => t('alerts.you_sure') }, :method => :delete %>.</p>
 
 <%= link_to t("links.back"), :back %>

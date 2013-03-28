@@ -1,1 +1,2 @@
-<% if user_signed_in? %><%= link_to('Править профиль', edit_user_registration_path) %><% else %><%= link_to('зарегистрироваться  ', new_user_registration_path)  %><% end %>
+<% if user_signed_in? %><%= link_to(t('.manage_acc'), edit_user_registration_path) %><% else %><%= link_to(t('.new'), new_user_registration_path)  %>
+<% end %>

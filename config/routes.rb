@@ -3,7 +3,7 @@ Myapp::Application.routes.draw do
   #resources :articles
   mount Ckeditor::Engine => '/ckeditor'
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :posts, :only => [:index,:show] do
     resources :comments

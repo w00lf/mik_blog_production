@@ -35,14 +35,8 @@ role :db,  "neon.locum.ru", :primary => true # This is where Rails migrations wi
 before 'deploy:assets:update_asset_mtimes', :copy_private_info
 
 task :copy_private_info, roles => :app do
-  #run "rvm use 1.9.3 do bundle install --path=~/projects/blog/shared/gems --without development test"
-  db_config = "#{shared_path}/database.yml"
-  run "ln -s #{db_config} #{release_path}/config/database.yml"
-  run "ln -s #{shared_path}/recaptcha_keys #{release_path}/config/recaptcha_keys"
-  run "ln -s #{shared_path}/environments/production.rb #{release_path}/config/environments/production.rb"
-
-  #run "ln -s #{shared_path}/public/ #{release_path}/public/"
-  #run "cd #{deploy_to}/current && RAILS_ENV=production rvm use 1.9.3 do bundle exec rake assets:precompile"
+  run "ln -s #{shared_path}/database.yml #{release_path}/config/database.yml"
+  run "ln -s #{shared_path}/private_info.yml #{release_path}/config/private_info.yml"
 end
 
 after 'deploy:symlink', :unicorm_pid_fix

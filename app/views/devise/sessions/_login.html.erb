@@ -1,4 +1,4 @@
-<legend>Войти:</legend>
+<legend><%= t('.login') %></legend>
 <%=form_for(resource, :as=>resource_name, :url => session_path(resource_name), :html => { :class => "form-inline"}) do |f| %>
 	<p>
 		<%=f.text_field(:email, :placeholder=>t("helpers.placeholder.user.email"), :class=>"input-medium") %>
@@ -15,7 +15,8 @@
 	</p>
 	<% end %>
 	<p>
-	<%=  f.submit( "Войти", :class=>"btn", :id=>'login_site') %>
+	<%=  f.submit( t('.login'), :class=>"btn", :id=>'login_site') %>
 </p>
 <% end %>
 <%= render "devise/shared/links" %>
+

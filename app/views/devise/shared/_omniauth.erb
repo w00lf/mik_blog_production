@@ -1,0 +1,10 @@
+<%- if devise_mapping.omniauthable? %>
+<legend><%= t('.title') %></legend>
+	<div id='omniath_block'>
+  		<%- resource_class.omniauth_providers.each do |provider| %>
+  			<li>
+	    		<%= link_to "", user_omniauth_authorize_path(provider), {:id=> provider, :title=> t('.enter_with', :provider => provider.to_s.titleize) }%>
+    		</li>
+  		<% end -%>
+  	</div>
+<% end -%>

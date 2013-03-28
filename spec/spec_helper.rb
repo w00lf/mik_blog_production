@@ -54,6 +54,9 @@ Spork.prefork do
     config.include HelperMethods, :type=>:feature
     config.extend ControllerMacros, :type => :controller
 
+    #Omniauth
+    OmniAuth.config.test_mode = true
+
     #Database cleaner
     config.before(:suite) do
       DatabaseCleaner.strategy = :truncation

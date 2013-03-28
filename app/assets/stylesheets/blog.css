@@ -158,3 +158,41 @@ h4 {
 h5 {
   font-size: 120%; 
 }
+
+#omniath_block li {
+  float: left;
+}
+#omniath_block {
+  height: 5px;
+}
+#omniath_block a {
+  background: url(auth.png) no-repeat;
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 0 5px;
+  border: none;
+}
+#omniath_block #facebook {
+  background-position: 0 -170px;
+}
+
+#omniath_block #vkontakte {
+  background-position: 0 -137px;
+}
+
+#omniath_block #google_oauth2 {
+  background-position: 0 -35px;
+}
+
+#omniath_block #twitter {
+  background-position: 0 -69px;
+}
+
+#omniath_block #yandex {
+  background-position: 0 -103px;
+}
+
+#omniath_block #github {
+  background-position: 0 -340px;
+}

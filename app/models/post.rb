@@ -15,7 +15,6 @@ class Post < ActiveRecord::Base
 
 	private
 	def post_date
-		timestring = Russian::strftime(Time.now, "%e %B %Y").to_s
-		self.date_post = timestring
+		self.date_post = I18n.l Time.now, :format => :post
 	end
 end

@@ -96,6 +96,8 @@ GEM
       railties (>= 3.0.0)
     faker (1.1.2)
       i18n (~> 0.5)
+    faraday (0.8.6)
+      multipart-post (~> 1.1)
     ffi (1.4.0)
     friendly_id (4.0.9)
     guard (1.6.2)
@@ -108,15 +110,24 @@ GEM
       guard (>= 1.1)
       rspec (~> 2.11)
     haml (3.1.8)
+    haml-rails (0.4)
+      actionpack (>= 3.1, < 4.1)
+      activesupport (>= 3.1, < 4.1)
+      haml (>= 3.1, < 4.1)
+      railties (>= 3.1, < 4.1)
+    hashie (1.2.0)
     highline (1.6.15)
     hike (1.2.1)
     htmlentities (4.3.1)
+    httpauth (0.2.0)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.1.3)
       railties (>= 3.1.0, < 5.0)
       thor (~> 0.14)
     json (1.7.7)
+    jwt (0.1.8)
+      multi_json (>= 1.5)
     kgio (2.8.0)
     launchy (2.2.0)
       addressable (~> 2.3)
@@ -139,6 +150,7 @@ GEM
     method_source (0.8.1)
     mime-types (1.21)
     multi_json (1.6.1)
+    multipart-post (1.2.0)
     net-scp (1.1.0)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.1)
@@ -147,6 +159,40 @@ GEM
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
     nokogiri (1.5.6)
+    oauth (0.4.7)
+    oauth2 (0.8.1)
+      faraday (~> 0.8)
+      httpauth (~> 0.1)
+      jwt (~> 0.1.4)
+      multi_json (~> 1.0)
+      rack (~> 1.2)
+    omniauth (1.1.3)
+      hashie (~> 1.2)
+      rack
+    omniauth-facebook (1.4.1)
+      omniauth-oauth2 (~> 1.1.0)
+    omniauth-github (1.1.0)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.1)
+    omniauth-google-oauth2 (0.1.13)
+      omniauth (~> 1.0)
+      omniauth-oauth2
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-oauth2 (1.1.1)
+      oauth2 (~> 0.8.0)
+      omniauth (~> 1.0)
+    omniauth-twitter (0.0.15)
+      multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
+    omniauth-vkontakte (1.2.0)
+      multi_json
+      omniauth (~> 1.1.0)
+      omniauth-oauth2 (~> 1.0)
+    omniauth-yandex (0.0.2)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.0)
     orm_adapter (0.4.0)
     paperclip (3.4.0)
       activemodel (>= 3.0.0)
@@ -288,12 +334,20 @@ DEPENDENCIES
   faker
   friendly_id (~> 4.0.1)
   guard-rspec
+  haml-rails
   headless!
   htmlentities
   jquery-rails (= 2.1.3)
   launchy
   mailcatcher
   nokogiri
+  omniauth
+  omniauth-facebook
+  omniauth-github
+  omniauth-google-oauth2
+  omniauth-twitter
+  omniauth-vkontakte
+  omniauth-yandex
   paperclip
   pg
   rails (= 3.2.12)

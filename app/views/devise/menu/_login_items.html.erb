@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <p class="lead"><%= current_user.username %></p>
-  <%= link_to('Выйти', destroy_user_session_path, :method => :delete) %><br />
+  <%= link_to(t('.exit'), destroy_user_session_path, {:method => :delete, :id=> 'log_out'}) %><br />
 <% else %>
 <%= render 'devise/sessions/login' %>
 <% end %>

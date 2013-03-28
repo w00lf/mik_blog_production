@@ -78,3 +78,11 @@ gem "nokogiri"
 gem "htmlentities"
 
 gem "friendly_id", "~> 4.0.1"
+gem "haml-rails"
+gem 'omniauth' 
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
+gem 'omniauth-yandex'
+gem 'omniauth-github'

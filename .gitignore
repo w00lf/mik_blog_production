@@ -19,4 +19,3 @@ app/assets/images
 public/assets/
 *sublime*
 config/database.yml
-config/environments/production.rb
