@@ -39,7 +39,7 @@ task :copy_private_info, roles => :app do
   run "ln -s #{shared_path}/private_info.yml #{release_path}/config/private_info.yml"
 end
 
-after 'deploy:symlink', :unicorm_pid_fix
+after 'deploy:create_symlink', :unicorm_pid_fix
 
 task :unicorm_pid_fix, roles => :app do
   run "rm #{release_path}/tmp/pids"
