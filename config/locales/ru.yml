@@ -314,3 +314,10 @@ ru:
     username: Имя пользователя
     errors:
       <<: *errors
+  blog:
+    search:
+      no_result_html: "Не найдено совпадений для слова <b>%{word}</b>"
+      results_html: "Результаты поиска для слова: <b>%{word}</b>"
+    tag:
+      no_result_html: "Нет опубликованных постов для тега <b>%{tag}</b>"
+      results_html: "Посты помеченные тегом: <b>%{tag}</b>"

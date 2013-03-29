@@ -14,13 +14,18 @@ Myapp::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.default_url_options = { :host => 'programmernotes.info' }
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :domain => "localhost",
-    :address => "localhost", 
-    :port => 1025
+    address: "smtp.locum.ru",
+    port: 2525,
+    domain: 'programmernotes.info',
+    authentication: "plain",
+    enable_starttls_auto: false,
+    user_name: APP_CONFIG['smtp']['login'],
+    password: APP_CONFIG['smtp']['password']
   }
 
 

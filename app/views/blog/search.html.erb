@@ -1,5 +1,4 @@
-Результаты поиска по слову "<%=  @search_word %>":
+<%= render 'blog/alertnotice', :notice=>@notice %>
 <% @result.each do |post| %>
 <%=  render(post)  %>
 <% end %>
-<%= will_paginate @result %>

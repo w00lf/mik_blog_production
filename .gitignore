@@ -19,3 +19,6 @@ app/assets/images
 public/assets/
 *sublime*
 config/database.yml
+config/private_info.yml
+db/structure.sql
+

@@ -28,7 +28,7 @@ group :test do
   gem 'launchy'
   gem 'spork', '~> 1.0rc'
   gem 'database_cleaner'
-  gem 'headless', :git => 'git://github.com/leonid-shevtsov/headless.git', :branch => 'wait-for-xvfb-to-launch'
+  gem 'headless'
 end
 
 # Gems used only for assets and not required
@@ -86,3 +86,4 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'omniauth-yandex'
 gem 'omniauth-github'
+gem 'texticle', '2.0', :require => 'texticle/rails'

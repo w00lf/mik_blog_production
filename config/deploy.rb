@@ -37,19 +37,20 @@ before 'deploy:assets:update_asset_mtimes', :copy_private_info
 task :copy_private_info, roles => :app do
   run "ln -s #{shared_path}/database.yml #{release_path}/config/database.yml"
   run "ln -s #{shared_path}/private_info.yml #{release_path}/config/private_info.yml"
+  run "ln -s #{shared_path}/ckeditor_assets #{release_path}/public/assets/ckeditor_assets"
 end
 
 after 'deploy:create_symlink', :unicorm_pid_fix
 
 task :unicorm_pid_fix, roles => :app do
-  run "rm #{release_path}/tmp/pids"
+  #run "rm #{release_path}/tmp/pids"
 end
 
 set :unicorn_rails, "/var/lib/gems/1.8/bin/unicorn_rails"
 set :unicorn_conf, "/etc/unicorn/#{application}.#{scm_username}.rb"
 set :unicorn_pid, "/var/run/unicorn/#{application}.#{scm_username}.pid"
 # old entry; set :unicorn_start, "rvm use 1.9.3 do bundle exec #{unicorn_rails} -Dc #{unicorn_conf}"
-set :unicorn_start, "rvm use 1.9.3 do bundle exec unicorn_rails -Dc #{unicorn_conf}"
+set :unicorn_start, "cd /home/hosting_w00lf/projects/blog/current && /usr/local/rvm/bin/rvm use 1.9.3 do bundle exec unicorn_rails -Dc #{unicorn_conf}"
 
 # - for unicorn - #
 namespace :deploy do
@@ -65,6 +66,6 @@ namespace :deploy do
 
   desc "Restart Application"
   task :restart, :roles => :app do
-    run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn_start}"
+    run "[ -f #{unicorn_pid} ] && kill -QUIT `cat #{unicorn_pid}` || #{unicorn_start}"
   end
 end

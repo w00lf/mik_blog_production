@@ -17,16 +17,21 @@ class BlogController < ApplicationController
   end
   def listing_tag
     @tag = params[:tag]
-    @tagged_posts = Post.published(true).tagged_with(params[:tag]).order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
+    @tagged_posts = Post.tagged_with(params[:tag]).order('created_at DESC').paginate(:page => params[:page], :per_page => 10).select {|entry| entry.published }
+    if @tagged_posts.count > 0
+      @notice = t('blog.tag.results_html', :tag=>@tag )
+    else
+      @notice = t('blog.tag.no_result_html', :tag=>@tag )
+    end
   end
 
   def search
     @search_word = params[:word]
-    @search_result = Post.where("content LIKE ? and published=?", '%' + @search_word + '%', true)
-    if @search_result
-      @result =  @search_result.paginate(:page => params[:page], :per_page => 10)
+    @result = Post.search(:content=> @search_word).select {|entry| entry.published }
+    if @result.count > 0
+      @notice = t('blog.search.results_html', :word=>@search_word )
     else
-      @result = []
+      @notice = t('blog.search.no_result_html', :word=>@search_word )
     end
   end
 end

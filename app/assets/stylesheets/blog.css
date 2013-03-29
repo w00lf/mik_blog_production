@@ -161,6 +161,7 @@ h5 {
 
 #omniath_block li {
   float: left;
+  list-style: none;
 }
 #omniath_block {
   height: 5px;
@@ -195,4 +196,8 @@ h5 {
 
 #omniath_block #github {
   background-position: 0 -340px;
+}
+
+.alert b {
+  font-size: 18px;
 }

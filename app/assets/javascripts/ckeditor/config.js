@@ -3,7 +3,10 @@ CKEDITOR.editorConfig = function( config )
 	  // Define changes to default configuration here. For example:
   // config.language = 'fr';
   // config.uiColor = '#AADC6E';
-  
+  config.disableNativeSpellChecker = false;
+
+  config.removePlugins = 'liststyle,tabletools,scayt,menubutton,contextmenu';
+
   /* Filebrowser routes */
   // The location of an external file browser, that should be launched when "Browse Server" button is pressed.
   config.filebrowserBrowseUrl = "/ckeditor/attachment_files";
@@ -87,7 +90,7 @@ CKEDITOR.editorConfig = function( config )
   
   /* Extra plugins */
   // works only with en, ru, uk locales
-  config.extraPlugins = "embed,attachment,syntaxhighlight";
+  config.extraPlugins = "embed,attachment,syntaxhighlight,noindex_link";
   
   /* Toolbars */
   config.toolbar = 'Easy';
@@ -104,4 +107,5 @@ CKEDITOR.editorConfig = function( config )
         ['Table','HorizontalRule','Smiley','SpecialChar','PageBreak']
     ];
 	config.toolbar_Easy.push(['Code']);
+  config.toolbar_Easy.push(['noindex_link']);
 }

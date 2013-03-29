@@ -1,22 +1,6 @@
 require 'spec_helper'
 
 describe BlogController do
-    
-    describe "GET #search" do
-        before(:each) do #Загрузить ТАБЛИЦЫ В ТЕСТОВУЮ БД!
-            @post ||= FactoryGirl.create(:post)
-            @search_sentence = @post.content.split(' ')[1]
-            get :search, word: @search_sentence
-        end
-      
-        it "it renders post object for search word" do
-            assigns(:result).should include(@post)
-        end
-
-        it "renders the :show view" do
-            response.should render_template :search
-        end
-    end
 
     describe "GET #listing_tag" do
         before(:each) do 
@@ -32,6 +16,22 @@ describe BlogController do
 
         it "renders the :listing_tag view" do
             response.should render_template :listing_tag
+        end
+    end
+
+    describe "GET #search" do
+        before(:each) do 
+            @post ||= FactoryGirl.create(:post)
+            @search_word = @post.content.split(' ').first
+            get :search, word: @search_word
+        end
+      
+        it "it renders post object for search" do
+            assigns(:result).should include(@post)
+        end
+
+        it "renders the :search view" do
+            response.should render_template :search
         end
     end
 end
