@@ -28,16 +28,16 @@ set :bundle_dir,          "#{shared_path}/gems"
 set :bundle_flags,        "--deployment --quiet"
 set :bundle_without,      [:development, :test]
 
-role :web, "neon.locum.ru"                          # Your HTTP server, Apache/etc
-role :app, "neon.locum.ru"                          # This may be the same as your `Web` server
-role :db,  "neon.locum.ru", :primary => true # This is where Rails migrations will run
+role :web, "titanium.locum.ru"                          # Your HTTP server, Apache/etc
+role :app, "titanium.locum.ru"                          # This may be the same as your `Web` server
+role :db,  "titanium.locum.ru", :primary => true # This is where Rails migrations will run
 
 before 'deploy:assets:update_asset_mtimes', :copy_private_info
 
 task :copy_private_info, roles => :app do
   run "ln -s #{shared_path}/database.yml #{release_path}/config/database.yml"
   run "ln -s #{shared_path}/private_info.yml #{release_path}/config/private_info.yml"
-  run "ln -s #{shared_path}/ckeditor_assets #{release_path}/public/assets/ckeditor_assets"
+#  run "ln -s #{shared_path}/ckeditor_assets #{release_path}/public/assets/ckeditor_assets"
 end
 
 after 'deploy:create_symlink', :unicorm_pid_fix

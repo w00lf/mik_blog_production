@@ -16,7 +16,6 @@ group :test, :development do
   gem 'sqlite3', '1.3.6'
   gem 'factory_girl_rails'
   gem 'mailcatcher'
-  gem 'debugger'
   gem 'selenium-webdriver', '2.30.0'
   gem "rvm-capistrano"
 end

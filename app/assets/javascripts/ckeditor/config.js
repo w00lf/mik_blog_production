@@ -90,7 +90,7 @@ CKEDITOR.editorConfig = function( config )
   
   /* Extra plugins */
   // works only with en, ru, uk locales
-  config.extraPlugins = "embed,attachment,syntaxhighlight,noindex_link";
+  config.extraPlugins = "embed,attachment,syntaxhighlight";
   
   /* Toolbars */
   config.toolbar = 'Easy';
@@ -107,5 +107,4 @@ CKEDITOR.editorConfig = function( config )
         ['Table','HorizontalRule','Smiley','SpecialChar','PageBreak']
     ];
 	config.toolbar_Easy.push(['Code']);
-  config.toolbar_Easy.push(['noindex_link']);
 }
